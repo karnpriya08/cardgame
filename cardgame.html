@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let suits = ["spades","diamonds","clubs","heart"];
+        let values = {"A":1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10,"J":11,"Q":12,"K":13};
+let deck = [];
+let totalChance=10
+let currentChance=1
+        let oddPLayer = 0;
+        let evenPLayer = 0;   
+for (let  i of suits) {
+     for (let j of Object.values(values)) {
+        let cards = {value : values[j], suit: suits[i]};
+        deck.push(cards);   
+     } 
+}
+while (currentChance <= totalChance) {
+    let drawCard = Math.floor(Math.random()*14);
+    console.log(drawCard);
+if (drawCard % 2 ===0) {
+    evenPLayer += drawCard
+}else{
+    oddPLayer += drawCard
+}
+currentChance++   
+}
+if (evenPLayer> oddPLayer) {
+    console.log(`EVEN player is winner with total ${evenPLayer}`);   
+}else if (oddPLayer>evenPLayer) {
+
+    console.log(`ODD player is winner with total ${oddPLayer}`);
+}
+else{
+    console.log(`MATCH IS DRAW`);
+}
+
+
+
+    </script>
+</body>
+</html>
